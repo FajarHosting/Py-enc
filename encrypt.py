@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-# By Ammar Executed: https://github.com/FajarHosting
+# By FajarHosting Executed: https://github.com/FajarHosting
 
 
 import os
