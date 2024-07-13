@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-# By Ammar Executed: https://github.com/GANZFAJAR
+# By Ammar Executed: https://github.com/FajarHosting
 
 
 import os
@@ -104,7 +104,7 @@ def parse_args():
 
 def check_update():
     global LATEST_VER
-    LATEST_VER = requests.get('https://raw.githubusercontent.com/AmmarrBN/Py-Fuscate/main/.version').text.strip()
+    LATEST_VER = requests.get('https://raw.githubusercontent.com/FajarHosting/Py-enc/main/.version').text.strip()
     with open('.version') as version:
         if version.read().strip() < LATEST_VER:
             return True
@@ -116,7 +116,7 @@ def update():
         _ = subprocess.run(['git', 'stash'])
         _ = subprocess.run(['git', 'pull'])
     else:
-        latest_source = requests.get('https://raw.githubusercontent.com/AmmarrBN/Py-Fuscate/main/encrypt.py').content
+        latest_source = requests.get('https://raw.githubusercontent.com/FajarHosting/Py-enc/main/encrypt.py').content
         with open('encrypt.py', 'wb') as file:
             file.write(latest_source)
         with open('.version', 'w') as file:
@@ -155,7 +155,7 @@ def main():
         for _ in range(80000):
             output.write('"requests.Session = Error","requests.Session = Error"\n')
         output.write(")\n")
-        output.write(f'# Compile By FAJAR STORE\n# https://github.com/GANZFAJAR/Py-enc\n# Make Sure You\'re Running The Program With {PYTHON_VERSION} Otherwise It May Crash\n# To Check Your Python Version Run "python -V" Command\ntry:\n\t{encoded}\nexcept KeyboardInterrupt:\n\tpass')
+        output.write(f'# Compile By FAJAR STORE\n# https://github.com/FajarHosting/Py-enc\n# Make Sure You\'re Running The Program With {PYTHON_VERSION} Otherwise It May Crash\n# To Check Your Python Version Run "python -V" Command\ntry:\n\t{encoded}\nexcept KeyboardInterrupt:\n\tpass')
     print(LIGRE + '\t[+] encoding successful!\n\tsaved as '.title() + args.output)
 if __name__ == '__main__':
     logo()
