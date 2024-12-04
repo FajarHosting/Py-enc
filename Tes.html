@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absen Pembayaran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 10px;
+            margin: 5px 0;
+            width: 200px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Absen Pembayaran</h1>
+    <form action="index.php" method="POST">
+        <input type="text" name="nama" placeholder="Nama" required>
+        <label>
+            <input type="checkbox" name="status"> Hadir
+        </label>
+        <input type="number" name="jumlah_pembayaran" placeholder="Jumlah Pembayaran" required>
+        <button type="submit">Tambah Absen</button>
+    </form>
+
+    <h2>Data Absen</h2>
+    <table>
+        <tr>
+            <th>Nama</th>
+            <th>Status</th>
+            <th>Jumlah Pembayaran</th>
+            <th>Tanggal</th>
+        </tr>
+        <?php
+        if (!empty($_SESSION['absensi'])) {
+            foreach ($_SESSION['absensi'] as $absen) {
+                echo "<tr>
+                        <td>{$absen['nama']}</td>
+                        <td>{$absen['status']}</td>
+                        <td>{$absen['jumlah_pembayaran']}</td>
+                        <td>{$absen['tanggal']}</td>
+                      </tr>";
+            }
+        } else {
+            echo "<tr><td colspan='4'>Belum ada data absen.</td></tr>";
+        }
+        ?>
+    </table>
+</body>
+</html>
